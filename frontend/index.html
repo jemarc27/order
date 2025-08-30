@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* Minimal modal styling for demonstration */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 32px 24px;
+            min-width: 350px;
+            max-width: 95vw;
+            position: relative;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        }
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .order-items {
+            margin-bottom: 16px;
+        }
+        .order-items table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-items th, .order-items td {
+            text-align: left;
+            padding: 4px 0;
+        }
+        .order-total {
+            border-top: 1px solid #aaa;
+            margin: 12px 0 8px 0;
+            padding-top: 8px;
+            font-weight: bold;
+        }
+        .order-info {
+            display: flex;
+            gap: 32px;
+            margin-top: 16px;
+        }
+        .order-info label {
+            font-weight: bold;
+            margin-right: 4px;
+        }
+        .order-info span {
+            background: #f2f2f2;
+            border-radius: 16px;
+            padding: 2px 12px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <img src="orders-icon.png" alt="Orders Icon">
+            <span>Orders</span>
+        </div>
+    </div>
+
+    <!-- Main Content: Orders Page -->
+    <div class="orders-page">
+        <h1>Orders</h1>
+        <div class="search-bar">
+            <label for="search">Search:</label>
+            <input type="text" id="search" placeholder="Search Order ID, Customer Name...">
+        </div>
+        <div class="table-container">
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Placed</th>
+                        <th>Customer Name</th>
+                        <th>Order Method</th>
+                        <th>Order Details</th>
+                        <th>Payment Method</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-order-id="00125">
+                        <td>00125</td>
+                        <td>2024-01-20</td>
+                        <td>John Dela Cruz</td>
+                        <td>Delivery</td>
+                        <td><button class="view-orders">View Orders</button></td>
+                        <td>GCash</td>
+                        <td>
+                            <select class="status-dropdown" data-order-id="00125">
+                                <option value="Pending">Pending</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr data-order-id="00443">
+                        <td>00443</td>
+                        <td>2024-01-22</td>
+                        <td>Jane Smith</td>
+                        <td>Reservation</td>
+                        <td><button class="view-orders">View Orders</button></td>
+                        <td>GCash</td>
+                        <td>
+                            <select class="status-dropdown" data-order-id="00443">
+                                <option value="Pending">Pending</option>
+                                <option value="On Delivery" selected>On Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Order Details</h2>
+            <div id="modal-order-details"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
