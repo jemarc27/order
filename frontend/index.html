@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../frontend/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
         /* Minimal modal styling for demonstration */
@@ -64,6 +64,16 @@
             border-radius: 16px;
             padding: 2px 12px;
             font-size: 0.95em;
+        }
+        .gcash-img-container {
+            margin-top: 24px;
+            text-align: center;
+        }
+        .gcash-img-container img {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
     </style>
 </head>
@@ -138,8 +148,13 @@
     <div id="order-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2>Order Details</h2>
-            <div id="modal-order-details"></div>
+            <div class="order-details-section">
+                <h2>Order Details</h2>
+                <div id="modal-order-details"></div>
+            </div>
+            <div class="gcash-img-section">
+                <img src="assets/gcash.jpg" alt="GCash Receipt">
+            </div>
         </div>
     </div>
 

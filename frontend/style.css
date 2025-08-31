@@ -98,3 +98,104 @@ table tbody tr:nth-child(even) {
     border-radius: 4px;
     background-color: #fff;
 }
+.gcash-receipt {
+    background: #0066d6;
+    color: #fff;
+    border-radius: 18px;
+    margin-top: 24px;
+    padding: 24px 18px 18px 18px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.gcash-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.gcash-check {
+    background: #fff;
+    color: #0066d6;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+.gcash-title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.gcash-info {
+    background: #fff;
+    color: #222;
+    border-radius: 12px;
+    padding: 14px 12px;
+}
+.gcash-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+.gcash-label {
+    font-weight: 500;
+}
+.gcash-value {
+    font-weight: bold;
+}
+.modal-content {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 10px;
+    padding: 32px 24px;
+    min-width: 350px;
+    max-width: 500px;
+    width: 75vw;
+    position: relative;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.order-details-section {
+    flex: 2;
+    min-width: 0;
+}
+.gcash-img-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.gcash-img-section img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #0050d6;
+    padding: 8px 0 8px 0;
+    display: block;
+}
+/* @media (max-width: 700px) {
+    .modal-content {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 98vw;
+        padding: 16px 4px;
+    }
+    .gcash-img-section {
+        justify-content: center;
+        margin-top: 16px;
+    }
+    .gcash-img-section img {
+        width: 100%;
+        max-width: 220px;
+        margin: 0 auto;
+    }
+} */
