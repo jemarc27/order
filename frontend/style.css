@@ -159,7 +159,7 @@ table tbody tr:nth-child(even) {
     padding: 32px 24px;
     min-width: 350px;
     max-width: 500px;
-    width: 75vw;
+    width: 30vw;
     position: relative;
     box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }

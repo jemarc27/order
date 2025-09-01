@@ -100,4 +100,47 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Filter orders by type
+    const orderTypeSelect = document.getElementById('order-type');
+    const ordersTbody = document.getElementById('orders-tbody');
+    orderTypeSelect.addEventListener('change', function() {
+        const selectedType = orderTypeSelect.value;
+        Array.from(ordersTbody.querySelectorAll('tr')).forEach(row => {
+            if (row.getAttribute('data-type') === selectedType) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+    // Show all on page load
+    orderTypeSelect.dispatchEvent(new Event('change'));
+
+    // Show/hide tables based on order type selection
+    const onlineTable = document.getElementById('online-table-container');
+    const walkinTable = document.getElementById('walkin-table-container');
+    orderTypeSelect.addEventListener('change', function() {
+        if (orderTypeSelect.value === 'online') {
+            onlineTable.style.display = '';
+            walkinTable.style.display = 'none';
+        } else if (orderTypeSelect.value === 'walkin') {
+            onlineTable.style.display = 'none';
+            walkinTable.style.display = '';
+        } else {
+            onlineTable.style.display = '';
+            walkinTable.style.display = '';
+        }
+    });
+    // Set initial view
+    if (orderTypeSelect.value === 'online') {
+        onlineTable.style.display = '';
+        walkinTable.style.display = 'none';
+    } else if (orderTypeSelect.value === 'walkin') {
+        onlineTable.style.display = 'none';
+        walkinTable.style.display = '';
+    } else {
+        onlineTable.style.display = '';
+        walkinTable.style.display = '';
+    }
 });

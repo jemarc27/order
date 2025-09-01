@@ -75,6 +75,28 @@
             border-radius: 18px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
+        .search-type-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 18px;
+        }
+        .type-orders {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .type-orders label {
+            margin: 0;
+            font-weight: bold;
+        }
+        .type-orders select {
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 0.95em;
+        }
     </style>
 </head>
 <body>
@@ -89,11 +111,20 @@
     <!-- Main Content: Orders Page -->
     <div class="orders-page">
         <h1>Orders</h1>
-        <div class="search-bar">
-            <label for="search">Search:</label>
-            <input type="text" id="search" placeholder="Search Order ID, Customer Name...">
+        <div class="search-type-container" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 18px;">
+            <div class="search-bar" style="margin-bottom: 0;">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search Order ID, Customer Name...">
+            </div>
+            <div class="type-orders">
+                <label for="order-type">Type of Orders:</label>
+                <select id="order-type">
+                    <option value="walkin">Walk-in</option>
+                    <option value="online">Online Order</option>
+                </select>
+            </div>
         </div>
-        <div class="table-container">
+        <div class="table-container" id="table-container">
             <table id="orders-table">
                 <thead>
                     <tr>
@@ -106,8 +137,8 @@
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr data-order-id="00125">
+                <tbody id="orders-tbody">
+                    <tr data-order-id="00125" data-type="online">
                         <td>00125</td>
                         <td>2024-01-20</td>
                         <td>John Dela Cruz</td>
@@ -123,7 +154,39 @@
                             </select>
                         </td>
                     </tr>
-                    <tr data-order-id="00443">
+                    <tr data-order-id="00126" data-type="online">
+                        <td>00126</td>
+                        <td>2024-01-21</td>
+                        <td>Maria Santos</td>
+                        <td>Delivery</td>
+                        <td><button class="view-orders">View Orders</button></td>
+                        <td>GCash</td>
+                        <td>
+                            <select class="status-dropdown" data-order-id="00126">
+                                <option value="Pending">Pending</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr data-order-id="00127" data-type="online">
+                        <td>00127</td>
+                        <td>2024-01-22</td>
+                        <td>Carlos Reyes</td>
+                        <td>Delivery</td>
+                        <td><button class="view-orders">View Orders</button></td>
+                        <td>GCash</td>
+                        <td>
+                            <select class="status-dropdown" data-order-id="00127">
+                                <option value="Pending">Pending</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr data-order-id="00443" data-type="walkin">
                         <td>00443</td>
                         <td>2024-01-22</td>
                         <td>Jane Smith</td>
@@ -134,6 +197,38 @@
                             <select class="status-dropdown" data-order-id="00443">
                                 <option value="Pending">Pending</option>
                                 <option value="On Delivery" selected>On Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr data-order-id="00444" data-type="walkin">
+                        <td>00444</td>
+                        <td>2024-01-23</td>
+                        <td>Pedro Cruz</td>
+                        <td>Reservation</td>
+                        <td><button class="view-orders">View Orders</button></td>
+                        <td>GCash</td>
+                        <td>
+                            <select class="status-dropdown" data-order-id="00444">
+                                <option value="Pending">Pending</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr data-order-id="00445" data-type="walkin">
+                        <td>00445</td>
+                        <td>2024-01-24</td>
+                        <td>Ana Lopez</td>
+                        <td>Reservation</td>
+                        <td><button class="view-orders">View Orders</button></td>
+                        <td>GCash</td>
+                        <td>
+                            <select class="status-dropdown" data-order-id="00445">
+                                <option value="Pending">Pending</option>
+                                <option value="On Delivery">On Delivery</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Cancelled">Cancelled</option>
                             </select>
